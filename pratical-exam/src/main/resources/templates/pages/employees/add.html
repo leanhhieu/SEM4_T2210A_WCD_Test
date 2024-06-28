@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="~{fragments/main}">
+<head>
+    <title>Add Employee</title>
+</head>
+
+<th:block layout:fragment="body">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Add Employee</h1>
+        <form style="border: 1px solid #dad8d8;border-radius: 5px; max-width: 600px; padding: 30px; margin: 0 auto;flex-direction: column; align-items: center" th:action="@{/employee/create}" th:object="${employee}" method="post">
+            <div class="form-group">
+                <label for="employee_id">Employee ID</label>
+                <input type="text" th:field="*{employee_id}" class="form-control" id="employee_id">
+            </div>
+            <div class="form-group">
+                <label for="employee_name">Employee Name</label>
+                <input type="text" th:field="*{employee_name}" class="form-control" id="employee_name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" th:field="*{email}" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <label for="phone_number">Phone Number</label>
+                <input type="text" th:field="*{phone_number}" class="form-control" id="phone_number">
+            </div>
+            <div class="form-group">
+                <label for="birthday">Birth Day</label>
+                <input type="date" th:field="*{birthday}" class="form-control" id="birthday" required>
+            </div>
+            <button style="padding: 5px 30px;align-items: center; display: flex; margin: 0 auto" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</th:block>
+</html>
