@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Students</title>
+    <th:block th:include="/include/head"></th:block>
+</head>
+<body>
+
+<th:block th:include="/include/header"></th:block>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Edit Employee</h1>
+    <form style="border: 1px solid #dad8d8;border-radius: 5px; max-width: 500px; padding: 30px; margin: 0 auto;flex-direction: column; align-items: center" th:action="@{/employee/edit/{employee_id}(id=${employee.employee_id})}" th:object="${employee}" method="post">
+        <input type="hidden" th:field="*{employee_id}">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" th:field="*{employee_name}" class="form-control" id="name">
+        </div>
+        <div class="form-group" style="display: flex; justify-content: space-between" >
+            <div >
+                <label for="age">Birthday</label>
+                <input type="date" th:field="*{birthday}" class="form-control" id="age">
+            </div>
+            <div>
+                <label for="email">Phone</label>
+                <input type="text" th:field="*{phone_number}" class="form-control" id="email">
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="description"> Email</label>
+            <input type="text" th:field="*{email}" class="form-control" id="description">
+        </div>
+
+        <button style="padding: 5px 30px;align-items: center; display: flex; margin: 0 auto" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<th:block th:include="/include/footer"></th:block>
+
+</body>
+</html>
